@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>JL Esquadrias &amp; Serralheria</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="JL Esquadrias & Serralheria: esquadrias de alumínio, vidros, portas, janelas e serralheria sob medida em Barra Velha e região, há mais de 15 anos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Barlow+Semi+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: navy arquitetônico, linhas finas douradas como perfis de esquadria; faixas full-bleed alternando marinho e areia */
+:root{
+  --navy:#021625; --navy-2:#0A2236; --navy-3:#123049;
+  --gold:#F6E7B1; --gold-d:#D9C68A;
+  --sand:#E7D9C0; --sand-ink:#14222F;
+  --ink:#F3EFE4; --muted:rgba(243,239,228,.66); --line:rgba(246,231,177,.22);
+  --f-display:"Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --fs-display:clamp(2.6rem,6.4vw,5.6rem); --fs-h2:clamp(1.9rem,3.6vw,3.2rem); --fs-h3:clamp(1.2rem,1.8vw,1.5rem);
+  --fs-body:clamp(1rem,1.1vw,1.1rem); --fs-cap:.78rem;
+  --s-sm:1rem; --s-md:2rem; --s-lg:4rem; --s-xl:clamp(4.5rem,9vw,8rem);
+  --max:1200px; --ease:cubic-bezier(.22,.61,.36,1);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--ink);font-family:var(--f-body);font-size:var(--fs-body);line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.label{font-family:var(--f-mono);font-size:var(--fs-cap);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.02;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h2{font-size:var(--fs-h2)}
+h2 em,h1 em{font-style:normal;color:var(--gold)}
+p{margin:0}
+.lead{color:var(--muted);max-width:60ch}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--f-mono);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:1rem 1.4rem;border:1px solid var(--gold);color:var(--navy);background:var(--gold);transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease);cursor:pointer}
+.btn:hover{background:transparent;color:var(--gold)}
+.btn--ghost{background:transparent;color:var(--gold)}
+.btn--ghost:hover{background:var(--gold);color:var(--navy)}
+.btn svg{width:16px;height:16px;flex:none}
+
+/* marca */
+.brand{display:flex;align-items:center;gap:.9rem;text-decoration:none}
+.brand svg{height:34px;width:auto}
+.brand .bar{width:1px;align-self:stretch;background:var(--gold);opacity:.7}
+.brand .word{font-family:var(--f-mono);font-size:.62rem;line-height:1.25;letter-spacing:.06em;color:var(--ink);text-transform:uppercase}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(2,22,37,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.9rem}
+.nav{display:flex;align-items:center;gap:2rem}
+.nav a:not(.btn){font-family:var(--f-mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted);position:relative;padding-block:.3rem}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav a:not(.btn):hover{color:var(--ink)}
+.nav a:not(.btn):hover::after{transform:scaleX(1)}
+.nav .btn{padding:.7rem 1rem;font-size:.72rem}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--gold);width:44px;height:44px;cursor:pointer}
+@media (max-width:860px){
+  .menu-btn{display:grid;place-items:center}
+  .nav{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--navy);border-bottom:1px solid var(--line);padding:0 max(20px,env(safe-area-inset-right,0px)) 1.2rem max(20px,env(safe-area-inset-left,0px))}
+  .nav a:not(.btn){padding:1rem 0;border-bottom:1px solid var(--line)}
+  .nav .btn{margin-top:1rem;justify-content:center}
+  .nav[data-open="false"]{display:none}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;isolation:isolate;min-height:min(88vh,860px);display:flex;align-items:flex-end}
+.hero__bg{position:absolute;inset:-6% 0 0;z-index:-2;background:url("img/predio-janelas-pretas.jpg") center 35%/cover no-repeat;will-change:transform}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(2,22,37,.92) 0%,rgba(2,22,37,.7) 42%,rgba(2,22,37,.15) 100%),linear-gradient(0deg,rgba(2,22,37,.95) 0%,rgba(2,22,37,0) 45%)}
+.hero .wrap{width:100%;padding-block:clamp(6rem,14vh,9rem) var(--s-lg)}
+.hero__inner{max-width:760px;display:grid;gap:1.6rem}
+.hero h1{font-size:var(--fs-display);font-weight:500}
+.hero .lead{font-size:clamp(1.05rem,1.3vw,1.2rem)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:.4rem}
+.hero__meta{display:flex;flex-wrap:wrap;gap:.6rem 2rem;margin-top:var(--s-md);padding-top:1.4rem;border-top:1px solid var(--line);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.hero__meta b{color:var(--gold);font-weight:500}
+/* cantoneiras da marca */
+.corner{position:absolute;width:clamp(70px,9vw,130px);height:clamp(70px,9vw,130px);border-color:var(--gold);border-style:solid;opacity:.85;pointer-events:none}
+.corner--tr{top:clamp(1.5rem,4vw,3rem);right:clamp(1rem,4vw,3rem);border-width:2px 2px 0 0}
+.corner--bl{bottom:clamp(1.5rem,4vw,3rem);left:clamp(1rem,2vw,1.5rem);border-width:0 0 2px 2px;opacity:.35}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero__inner>*{animation:rise .9s var(--ease) both}
+.hero__inner>*:nth-child(2){animation-delay:.08s}.hero__inner>*:nth-child(3){animation-delay:.16s}.hero__inner>*:nth-child(4){animation-delay:.24s}.hero__inner>*:nth-child(5){animation-delay:.32s}
+
+/* seções */
+section{scroll-margin-top:70px}
+.sec{padding-block:var(--s-xl)}
+.sec__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s-md) var(--s-lg);align-items:end;margin-bottom:var(--s-lg)}
+.sec__head>div{display:grid;gap:1rem}
+@media (max-width:800px){.sec__head{grid-template-columns:1fr}}
+
+/* soluções: a anatomia do JL */
+.anat{display:flex;align-items:center;flex-wrap:wrap;gap:.6rem 1rem;font-family:var(--f-mono);color:var(--gold);font-size:.8rem;letter-spacing:.08em;margin-bottom:var(--s-md)}
+.anat span.op{opacity:.5}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:1000px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.cards{grid-template-columns:1fr}}
+.card{background:var(--navy);display:flex;flex-direction:column;min-width:0}
+.card__img{aspect-ratio:4/3;overflow:hidden;max-width:100%}
+.card__img img{width:100%;height:100%;object-fit:cover;filter:saturate(.85);transition:transform .8s var(--ease),filter .5s}
+.card:hover .card__img img{transform:scale(1.06);filter:saturate(1)}
+.card__body{padding:1.6rem 1.5rem 1.8rem;display:grid;gap:.8rem;align-content:start}
+.glyph{height:42px;display:flex;align-items:flex-end}
+.glyph svg{height:42px;width:auto}
+.card h3{font-size:var(--fs-h3);text-transform:uppercase;letter-spacing:.04em;color:var(--gold)}
+.card p{color:var(--muted);font-size:.98rem}
+.extra{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-top:0}
+@media (max-width:700px){.extra{grid-template-columns:1fr}}
+.extra div{background:var(--navy-2);padding:1.6rem 1.5rem;display:grid;gap:.5rem}
+.extra h3{font-size:1.25rem;text-transform:uppercase;letter-spacing:.04em}
+.extra p{color:var(--muted);font-size:.98rem}
+
+/* sobre (areia) */
+.sand{background:var(--sand);color:var(--sand-ink)}
+.sand .label{color:#7A6224}
+.sand .lead{color:rgba(20,34,47,.75)}
+.sand h2 em{color:#7A6224}
+.about{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:var(--s-lg);align-items:center}
+@media (max-width:900px){.about{grid-template-columns:1fr}}
+.about__text{display:grid;gap:1.4rem}
+.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid rgba(20,34,47,.2);margin-top:.6rem}
+.pillars div{padding:1.3rem 1rem 1.3rem 0;border-bottom:1px solid rgba(20,34,47,.2);display:grid;gap:.4rem}
+.pillars div:nth-child(odd){border-right:1px solid rgba(20,34,47,.2)}
+.pillars div:nth-child(even){padding-left:1.2rem}
+.pillars b{font-family:var(--f-display);font-weight:600;font-size:1.6rem;line-height:1}
+.pillars span{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(20,34,47,.7)}
+.about__img{position:relative;max-width:100%}
+.about__img img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 60%}
+.about__img::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid #7A6224;z-index:0;pointer-events:none}
+.about__img img{position:relative;z-index:1}
+
+/* processo */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s-md);counter-reset:s}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{border-top:1px solid var(--gold);padding-top:1.3rem;display:grid;gap:.7rem;align-content:start}
+.step .label{color:var(--gold)}
+.step h3{font-size:1.4rem}
+.step p{color:var(--muted);font-size:.98rem}
+
+/* projetos */
+.gallery{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:clamp(150px,18vw,240px);gap:12px}
+.g{position:relative;overflow:hidden;margin:0;background:var(--navy-2)}
+.g img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.g:hover img{transform:scale(1.05)}
+.g figcaption{position:absolute;left:0;bottom:0;padding:.7rem 1rem;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:linear-gradient(0deg,rgba(2,22,37,.85),transparent);width:100%}
+.g1{grid-column:span 5;grid-row:span 2}.g2{grid-column:span 4;grid-row:span 2}.g3{grid-column:span 3;grid-row:span 2}.g4{grid-column:span 4}.g5{grid-column:span 3;grid-row:span 2}.g6{grid-column:span 5;grid-row:span 2}.g7{grid-column:span 4;grid-row:span 2}.g8{grid-column:span 8}
+@media (max-width:700px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:170px}.g1{grid-column:span 2;grid-row:span 2}.g2,.g3,.g4,.g5,.g6,.g7,.g8{grid-column:span 1;grid-row:span 2}}
+
+
+/* vídeos */
+.videos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:clamp(320px,36vw,520px);gap:12px}
+.v{position:relative;margin:0;overflow:hidden;background:var(--navy-2);border:1px solid var(--line)}
+.v--wide{grid-column:span 2}
+.v video{width:100%;height:100%;object-fit:cover;display:block}
+.v figcaption{position:absolute;left:0;bottom:0;width:100%;padding:.8rem 1rem;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:linear-gradient(0deg,rgba(2,22,37,.9),transparent)}
+@media (max-width:800px){.videos{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:340px}.v--wide{grid-column:span 2}}
+
+/* faixa slogan */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding-block:1.4rem;background:var(--navy-2)}
+.marquee__track{display:flex;gap:3rem;width:max-content;animation:mq 38s linear infinite;font-family:var(--f-display);font-size:clamp(1.4rem,2.6vw,2.2rem);text-transform:uppercase;letter-spacing:.04em;color:var(--ink);white-space:nowrap}
+.marquee__track i{font-style:normal;color:var(--gold)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* contato */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:var(--s-lg)}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+.contact__info{display:grid;gap:1.6rem;align-content:start}
+.info-list{display:grid;gap:0;border-top:1px solid var(--line)}
+.info-list div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.info-list dt{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.info-list dd{margin:0;user-select:all;overflow-wrap:anywhere}
+.form{position:relative;background:var(--navy-2);border:1px solid var(--line);padding:clamp(1.4rem,3vw,2.4rem);display:grid;gap:1.1rem}
+.form .corner--tr{top:-1px;right:-1px;width:60px;height:60px}
+.field{display:grid;gap:.4rem}
+.field label{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{font:inherit;color:var(--ink);background:var(--navy);border:1px solid var(--line);padding:.85rem 1rem;border-radius:0;width:100%;transition:border-color .25s,box-shadow .25s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(246,231,177,.12)}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+.form__note{font-size:.85rem;color:var(--muted)}
+.form__out{display:grid;gap:.8rem;border-top:1px solid var(--line);padding-top:1rem}
+
+/* rodapé */
+.foot{border-top:1px solid var(--line);padding-block:var(--s-lg) var(--s-md);background:#01101C}
+.foot__grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:var(--s-md)}
+@media (max-width:700px){.foot__grid{grid-template-columns:1fr}}
+.foot h4{margin:0 0 .8rem;font-family:var(--f-mono);font-weight:400;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;color:var(--muted)}
+.foot a{text-decoration:none}.foot a:hover{color:var(--gold)}
+.foot__base{margin-top:var(--s-lg);padding-top:1.2rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+
+/* whatsapp flutuante */
+.wa{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;width:56px;height:56px;display:grid;place-items:center;background:var(--gold);color:var(--navy);border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .3s var(--ease)}
+.wa:hover{transform:translateY(-3px) scale(1.04)}
+.wa svg{width:26px;height:26px}
+
+/* revelar ao rolar (só abaixo da dobra) */
+.rv{transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.is-pre{opacity:0;transform:translateY(28px)}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv.is-pre{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- símbolo JL reutilizável -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="jl" viewBox="0 0 269 175">
+    <path fill="currentColor" d="M190.779 0.177657C198.06 -0.133482 207.331 0.0652869 214.683 0.175514C215.096 39.8832 214.828 80.5065 214.708 120.255C232.59 120.381 250.555 120.112 268.429 120.332L268.442 142.75C242.778 142.924 216.256 143.04 190.618 142.744C191.083 109.486 190.27 75.7396 190.644 42.4581C190.795 28.9496 190.191 13.4974 190.779 0.177657Z"/>
+    <path fill="currentColor" d="M2.02976 0.0726183L80.4305 0.077501C94.4558 0.0784171 109.112 -0.115779 123.094 0.202383C123.491 19.8634 123.159 40.7601 123.164 60.5286L123.13 152.102C118.27 156.808 113.444 161.544 108.651 166.316C106.614 168.331 102.381 172.713 100.278 174.243L0.167201 174.233L0.0994162 159.501L0.148579 109.682C7.48066 109.883 15.831 109.676 23.223 109.657C23.2285 122.14 23.4114 134.921 23.1765 147.376L95.0461 147.33L100.427 141.837L100.479 17.7459C90.9548 17.5373 80.813 17.7263 71.2425 17.7325L0.115905 17.6986C0.111019 13.2162 -0.201949 4.54002 0.221554 0.503453C0.905206 -0.0672231 0.920472 0.127274 2.02976 0.0726183Z"/>
+    <path fill="currentColor" d="M148.185 0.112917C156.243 -0.0318135 166.178 -0.067528 174.154 0.18804L174.194 153.965C184.92 154.252 196.551 154.044 207.374 154.047L268.436 154.056C268.466 160.789 268.463 167.519 268.426 174.248L148.191 174.218C147.977 154.606 148.172 134.625 148.172 114.988L148.185 0.112917Z"/>
+    <path fill="currentColor" d="M0.250954 23.1667L95.3255 23.1141L95.2709 139.061L92.2593 142.124C85.3749 142.356 77.4395 142.169 70.4912 142.172L28.2834 142.191C28.7628 136.179 28.3897 124.09 28.3439 117.687L28.4336 109.788L32.7963 109.794C33.2223 117.519 32.8568 129.327 32.8531 137.403C51.4467 137.837 71.9342 137.51 90.6291 137.446L90.5971 65.6303C90.5467 53.0751 90.5794 40.5196 90.6954 27.9647L0.18042 27.9541L0.250954 23.1667Z"/>
+  </symbol>
+  <symbol id="jl-j" viewBox="0 0 124 175"><path fill="currentColor" d="M2.02976 0.0726183L80.4305 0.077501C94.4558 0.0784171 109.112 -0.115779 123.094 0.202383C123.491 19.8634 123.159 40.7601 123.164 60.5286L123.13 152.102C118.27 156.808 113.444 161.544 108.651 166.316C106.614 168.331 102.381 172.713 100.278 174.243L0.167201 174.233L0.0994162 159.501L0.148579 109.682C7.48066 109.883 15.831 109.676 23.223 109.657C23.2285 122.14 23.4114 134.921 23.1765 147.376L95.0461 147.33L100.427 141.837L100.479 17.7459C90.9548 17.5373 80.813 17.7263 71.2425 17.7325L0.115905 17.6986C0.111019 13.2162 -0.201949 4.54002 0.221554 0.503453C0.905206 -0.0672231 0.920472 0.127274 2.02976 0.0726183Z"/><path fill="currentColor" d="M0.250954 23.1667L95.3255 23.1141L95.2709 139.061L92.2593 142.124C85.3749 142.356 77.4395 142.169 70.4912 142.172L28.2834 142.191C28.7628 136.179 28.3897 124.09 28.3439 117.687L28.4336 109.788L32.7963 109.794C33.2223 117.519 32.8568 129.327 32.8531 137.403C51.4467 137.837 71.9342 137.51 90.6291 137.446L90.5971 65.6303C90.5467 53.0751 90.5794 40.5196 90.6954 27.9647L0.18042 27.9541L0.250954 23.1667Z"/></symbol>
+  <symbol id="jl-lh" viewBox="147 0 122 175"><path fill="currentColor" d="M148.185 0.112917C156.243 -0.0318135 166.178 -0.067528 174.154 0.18804L174.194 153.965C184.92 154.252 196.551 154.044 207.374 154.047L268.436 154.056C268.466 160.789 268.463 167.519 268.426 174.248L148.191 174.218C147.977 154.606 148.172 134.625 148.172 114.988L148.185 0.112917Z"/></symbol>
+  <symbol id="jl-lv" viewBox="190 0 79 143"><path fill="currentColor" d="M190.779 0.177657C198.06 -0.133482 207.331 0.0652869 214.683 0.175514C215.096 39.8832 214.828 80.5065 214.708 120.255C232.59 120.381 250.555 120.112 268.429 120.332L268.442 142.75C242.778 142.924 216.256 143.04 190.618 142.744C191.083 109.486 190.27 75.7396 190.644 42.4581C190.795 28.9496 190.191 13.4974 190.779 0.177657Z"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.92-4.66-4.1-.13-.18-1.1-1.47-1.1-2.8 0-1.34.7-2 .95-2.27.24-.27.53-.34.71-.34l.51.01c.16 0 .38-.06.6.46.23.54.77 1.87.84 2 .07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.7 1.16 1.51 1.88 1.04.93 1.92 1.21 2.19 1.35.27.14.43.11.59-.07.16-.18.68-.8.86-1.07.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34Z"/></symbol>
+  <symbol id="arrow" viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="JL Esquadrias e Serralheria, início">
+      <svg style="color:var(--gold)" viewBox="0 0 269 175"><use href="#jl"/></svg>
+      <span class="bar"></span>
+      <span class="word">Esquadrias<br>&amp;<br>Serralheria</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-controls="nav" aria-expanded="false" aria-label="Abrir menu">
+      <svg width="20" height="14" viewBox="0 0 20 14"><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+    <nav class="nav" id="nav" data-open="false">
+      <a href="#solucoes">Soluções</a>
+      <a href="#sobre">A JL</a>
+      <a href="#processo">Como trabalhamos</a>
+      <a href="#projetos">Obras</a>
+      <a class="btn" href="#orcamento">Pedir orçamento</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero__bg" id="heroBg" role="img" aria-label="Prédio residencial com esquadrias pretas instaladas pela JL"></div>
+    <span class="corner corner--tr"></span>
+    <div class="wrap">
+      <div class="hero__inner">
+        <span class="label">Esquadrias de alumínio · Vidros · Serralheria</span>
+        <h1>Soluções que <em>abrem espaços.</em></h1>
+        <p class="lead">Portas, janelas, corrediças e fechamentos em vidro feitos sob medida, com fabricação própria e instalação pela nossa equipe. Atendemos Barra Velha e região.</p>
+        <div class="hero__cta">
+          <a class="btn" href="#orcamento">Pedir orçamento <svg><use href="#arrow"/></svg></a>
+          <a class="btn btn--ghost" href="#solucoes">Ver soluções</a>
+        </div>
+        <div class="hero__meta">
+          <span><b>+15</b> anos de história</span>
+          <span><b>Fabricação</b> própria</span>
+          <span><b>Barra Velha</b> · SC</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="solucoes">
+    <div class="wrap">
+      <div class="sec__head rv">
+        <div>
+          <span class="label">Nossas soluções</span>
+          <h2>Cada linha da marca é <em>uma coisa que fabricamos.</em></h2>
+        </div>
+        <p class="lead">O símbolo JL nasceu do nosso trabalho: o J é a porta, as linhas paralelas são o vidro, e os dois L são os trilhos das corrediças e a estrutura das janelas.</p>
+      </div>
+
+      <div class="anat rv" aria-hidden="true">
+        <span>J</span><span class="op">+</span><span>II</span><span class="op">+</span><span>L</span><span class="op">+</span><span>L</span><span class="op">=</span>
+        <svg style="height:22px;width:auto;color:var(--gold)" viewBox="0 0 269 175"><use href="#jl"/></svg>
+      </div>
+
+      <div class="cards rv">
+        <article class="card">
+          <div class="card__img"><img src="img/guarda-corpo-sacada.jpg" alt="Portas de vidro abrindo para a sacada com guarda-corpo de vidro" loading="lazy"></div>
+          <div class="card__body">
+            <div class="glyph"><svg viewBox="0 0 124 175" style="color:var(--gold)"><use href="#jl-j"/></svg></div>
+            <h3>Portas</h3>
+            <p>Portas de giro e de correr em alumínio e vidro, da entrada à sacada. É o primeiro contato com o ambiente, então caprichamos no batente e na abertura.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="img/pele-vidro.jpg" alt="Fachada em pele de vidro refletindo palmeiras" loading="lazy"></div>
+          <div class="card__body">
+            <div class="glyph"><svg viewBox="0 0 36 175" style="color:var(--gold)"><rect x="0" y="0" width="12" height="175" fill="currentColor"/><rect x="22" y="0" width="12" height="175" fill="currentColor"/></svg></div>
+            <h3>Vidros</h3>
+            <p>Pele de vidro, box de banheiro, guarda-corpo e fechamentos. Transparência e leveza com segurança.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="img/janela-canto.jpg" alt="Janela de correr de canto em alumínio preto com vista para a cidade" loading="lazy"></div>
+          <div class="card__body">
+            <div class="glyph"><svg viewBox="0 0 122 175" style="color:var(--gold)"><use href="#jl-lh"/></svg></div>
+            <h3>Corrediças</h3>
+            <p>Portas e janelas de correr com guias e trilhos que garantem um deslize suave, silencioso e seguro por muitos anos.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__img"><img src="img/predio-cinza-2.jpg" alt="Prédio residencial com janelas de alumínio preto em todos os andares" loading="lazy"></div>
+          <div class="card__body">
+            <div class="glyph"><svg viewBox="0 0 79 143" style="color:var(--gold)"><use href="#jl-lv"/></svg></div>
+            <h3>Janelas</h3>
+            <p>Janelas de alumínio em linhas modernas, com quadros e estruturas que sustentam a esquadria e emolduram cada vista.</p>
+          </div>
+        </article>
+      </div>
+      <div class="extra rv">
+        <div>
+          <span class="label">Também fazemos</span>
+          <h3>Serralheria</h3>
+          <p>Portões, grades, estruturas metálicas, coberturas e escadas, com o mesmo cuidado de acabamento das esquadrias.</p>
+        </div>
+        <div>
+          <span class="label">Sob medida</span>
+          <h3>Projetos personalizados</h3>
+          <p>Trabalhamos junto com arquitetos e construtoras para tirar do papel soluções de alto padrão para casas e apartamentos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Linhas que abrem <i>/</i></span><span>Soluções que conectam <i>/</i></span><span>Construindo com precisão <i>/</i></span><span>Confiança que se vê <i>/</i></span><span>Qualidade que perdura <i>/</i></span>
+      <span>Linhas que abrem <i>/</i></span><span>Soluções que conectam <i>/</i></span><span>Construindo com precisão <i>/</i></span><span>Confiança que se vê <i>/</i></span><span>Qualidade que perdura <i>/</i></span>
+    </div>
+  </div>
+
+  <section class="sec sand" id="sobre">
+    <div class="wrap about">
+      <div class="about__text rv">
+        <span class="label">A JL</span>
+        <h2>Mais que uma marca, <em>a base de cada projeto.</em></h2>
+        <p class="lead">A JL Esquadrias &amp; Serralheria transforma ideias em estruturas que ficam. São mais de 15 anos fabricando e instalando esquadrias em Barra Velha e região, com qualidade, precisão e compromisso em cada detalhe.</p>
+        <div class="pillars">
+          <div><b>+15 anos</b><span>de história</span></div>
+          <div><b>Fábrica</b><span>produção própria</span></div>
+          <div><b>Alto padrão</b><span>materiais de qualidade</span></div>
+          <div><b>Sob medida</b><span>soluções personalizadas</span></div>
+        </div>
+      </div>
+      <div class="about__img rv">
+        <img src="img/casa-ripado-1.jpg" alt="Casa com janela fixa de vidro do chão ao teto ao lado de painel ripado" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="processo">
+    <div class="wrap">
+      <div class="sec__head rv">
+        <div>
+          <span class="label">Como trabalhamos</span>
+          <h2>Do primeiro contato <em>à última vedação.</em></h2>
+        </div>
+        <p class="lead">Um único time cuida da sua obra do começo ao fim. Isso evita retrabalho e garante que o que foi medido é o que chega instalado.</p>
+      </div>
+      <div class="steps rv">
+        <div class="step"><span class="label">Etapa 1</span><h3>Visita e medição</h3><p>Vamos até a obra, entendemos o projeto e tiramos as medidas de cada vão.</p></div>
+        <div class="step"><span class="label">Etapa 2</span><h3>Projeto e orçamento</h3><p>Indicamos linha, vidro e acabamento ideais e enviamos um orçamento claro, item por item.</p></div>
+        <div class="step"><span class="label">Etapa 3</span><h3>Fabricação própria</h3><p>Cortamos e montamos as esquadrias na nossa fábrica, com controle de qualidade em cada peça.</p></div>
+        <div class="step"><span class="label">Etapa 4</span><h3>Instalação</h3><p>Nossa equipe instala, faz a vedação e entrega tudo limpo, regulado e funcionando.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="projetos" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head rv">
+        <div>
+          <span class="label">Projetos</span>
+          <h2>Espaços que <em>ganharam luz.</em></h2>
+        </div>
+        <p class="lead">Obras reais entregues pela JL: prédios residenciais, casas, fachadas comerciais, boxes e guarda-corpos.</p>
+      </div>
+      <div class="gallery rv">
+        <figure class="g g1"><img src="img/pele-vidro-maximar.jpg" alt="Fachada comercial em pele de vidro com janelas maxim-ar abertas" loading="lazy"><figcaption>Pele de vidro com maxim-ar</figcaption></figure>
+        <figure class="g g2"><img src="img/predio-cinza-1.jpg" alt="Prédio residencial com janelas de alumínio preto" loading="lazy"><figcaption>Residencial · janelas pretas</figcaption></figure>
+        <figure class="g g3"><img src="img/escada-guarda-corpo.jpg" alt="Escada com guarda-corpo de vidro e fixadores em inox" loading="lazy"><figcaption>Guarda-corpo de escada</figcaption></figure>
+        <figure class="g g4"><img src="img/box-preto.jpg" alt="Box de banheiro de correr com perfil preto" loading="lazy"><figcaption>Box com perfil preto</figcaption></figure>
+        <figure class="g g5"><img src="img/box-canto.jpg" alt="Box de vidro de canto com puxadores" loading="lazy"><figcaption>Box de canto</figcaption></figure>
+        <figure class="g g6"><img src="img/casa-ripado-2.jpg" alt="Casa com janela fixa de vidro alta ao lado de painel ripado" loading="lazy"><figcaption>Janela fixa do chão ao teto</figcaption></figure>
+        <figure class="g g7"><img src="img/predio-branco.jpg" alt="Prédio branco com janelas de correr e maxim-ar" loading="lazy"><figcaption>Residencial · maxim-ar</figcaption></figure>
+        <figure class="g g8"><img src="img/banheiro-maximar.jpg" alt="Banheiro em mármore com janela maxim-ar preta" loading="lazy"><figcaption>Maxim-ar no banheiro</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec" id="videos" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head rv">
+        <div>
+          <span class="label">Obras em vídeo</span>
+          <h2>Veja de perto <em>o acabamento.</em></h2>
+        </div>
+        <p class="lead">Gravado pela nossa equipe na entrega das obras.</p>
+      </div>
+      <div class="videos rv">
+        <figure class="v"><video src="video/obra-25.mp4" poster="video/obra-25.jpg" muted loop playsinline preload="none" aria-label="Fachada com janela fixa de vidro e painel ripado"></video><figcaption>Janela fixa do chão ao teto</figcaption></figure>
+        <figure class="v"><video src="video/obra-15.mp4" poster="video/obra-15.jpg" muted loop playsinline preload="none" aria-label="Box de banheiro com perfil preto"></video><figcaption>Box com perfil preto</figcaption></figure>
+        <figure class="v"><video src="video/obra-22.mp4" poster="video/obra-22.jpg" muted loop playsinline preload="none" aria-label="Escada com guarda-corpo de vidro"></video><figcaption>Guarda-corpo de escada</figcaption></figure>
+        <figure class="v v--wide"><video src="video/obra-21.mp4" poster="video/obra-21.jpg" muted loop playsinline preload="none" aria-label="Sobrados com esquadrias e guarda-corpos de vidro"></video><figcaption>Sobrados · esquadrias e sacadas</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="orcamento" style="background:var(--navy-2);border-top:1px solid var(--line)">
+    <div class="wrap contact">
+      <div class="contact__info rv">
+        <span class="label">Orçamento</span>
+        <h2>Vamos abrir <em>o seu espaço?</em></h2>
+        <p class="lead">Conte o que você precisa e a gente retorna pelo WhatsApp com os próximos passos. Se tiver o projeto ou fotos do vão, melhor ainda.</p>
+        <dl class="info-list">
+          <div><dt>WhatsApp</dt><dd>(47) 99999-9999</dd></div>
+          <div><dt>Instagram</dt><dd>@jlesquadriasserralheria</dd></div>
+          <div><dt>Atendimento</dt><dd>Barra Velha e região · SC</dd></div>
+        </dl>
+      </div>
+      <form class="form rv" id="quote" novalidate>
+        <span class="corner corner--tr"></span>
+        <div class="row2">
+          <div class="field"><label for="q-name">Seu nome</label><input id="q-name" name="name" autocomplete="name" required placeholder="Ex.: Mariana Souza"></div>
+          <div class="field"><label for="q-city">Cidade / bairro</label><input id="q-city" name="city" placeholder="Ex.: Barra Velha, Centro"></div>
+        </div>
+        <div class="field">
+          <label for="q-type">O que você precisa?</label>
+          <select id="q-type" name="type">
+            <option>Janelas</option><option>Portas</option><option>Portas e janelas de correr</option>
+            <option>Vidros, box ou fechamento de sacada</option><option>Guarda-corpo</option>
+            <option>Serralheria (portões, grades, estruturas)</option><option>Obra completa / projeto</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="q-stage">Momento da obra</label>
+          <select id="q-stage" name="stage">
+            <option>Ainda no projeto</option><option>Obra em andamento</option><option>Reforma de imóvel pronto</option>
+          </select>
+        </div>
+        <div class="field"><label for="q-msg">Detalhes (opcional)</label><textarea id="q-msg" name="msg" rows="3" placeholder="Medidas aproximadas, quantidade de vãos, cor do alumínio..."></textarea></div>
+        <button class="btn" type="submit" style="justify-content:center"><svg><use href="#wa"/></svg> Montar mensagem para o WhatsApp</button>
+        <div class="form__out" id="quoteOut" hidden>
+          <p class="form__note">Sua mensagem está pronta. Toque abaixo para abrir o WhatsApp da JL.</p>
+          <a class="btn btn--ghost" id="quoteLink" href="#" target="_blank" rel="noopener" style="justify-content:center">Abrir WhatsApp <svg><use href="#arrow"/></svg></a>
+        </div>
+        <p class="form__note" id="quoteErr" hidden>Preencha seu nome para continuar.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div style="display:grid;gap:1.2rem;align-content:start">
+        <a class="brand" href="#inicio" aria-label="JL Esquadrias e Serralheria">
+          <svg style="color:var(--gold);height:44px" viewBox="0 0 269 175"><use href="#jl"/></svg><span class="bar"></span>
+          <span class="word" style="font-size:.7rem">Esquadrias<br>&amp;<br>Serralheria</span>
+        </a>
+        <p class="lead" style="font-size:.95rem">Construímos confiança. Realizamos projetos.</p>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul><li><a href="#solucoes">Portas</a></li><li><a href="#solucoes">Janelas e corrediças</a></li><li><a href="#solucoes">Vidros</a></li><li><a href="#solucoes">Serralheria</a></li></ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul><li>(47) 99999-9999</li><li><a href="https://instagram.com/jlesquadriasserralheria" target="_blank" rel="noopener">@jlesquadriasserralheria</a></li><li>Barra Velha · SC</li></ul>
+      </div>
+    </div>
+    <div class="foot__base"><span>© <span id="yr">2026</span> JL Esquadrias &amp; Serralheria</span><span>Construindo com precisão.</span></div>
+  </div>
+</footer>
+
+<a class="wa" id="waFloat" href="https://wa.me/5547999999999?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<script>
+(function(){
+  // Trocar pelo número real da JL (DDI + DDD + número, só dígitos)
+  var WHATS = "5547999999999";
+
+  var btn=document.getElementById("menuBtn"), nav=document.getElementById("nav");
+  btn.addEventListener("click",function(){var o=nav.dataset.open==="true";nav.dataset.open=String(!o);btn.setAttribute("aria-expanded",String(!o));});
+  nav.addEventListener("click",function(e){if(e.target.closest("a")&&window.innerWidth<=860){nav.dataset.open="false";btn.setAttribute("aria-expanded","false");}});
+
+  document.getElementById("yr").textContent=new Date().getFullYear();
+
+  // revelar ao rolar: só esconde o que está abaixo da dobra
+  var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if("IntersectionObserver" in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove("is-pre");io.unobserve(e.target);}});},{rootMargin:"0px 0px -8% 0px"});
+    document.querySelectorAll(".rv").forEach(function(el){if(el.getBoundingClientRect().top>innerHeight){el.classList.add("is-pre");io.observe(el);}});
+  }
+
+  // parallax suave no hero
+  var bg=document.getElementById("heroBg"), tick=false;
+  if(!reduce){addEventListener("scroll",function(){if(tick)return;tick=true;requestAnimationFrame(function(){var y=Math.min(scrollY,900);bg.style.transform="translate3d(0,"+(y*0.18)+"px,0)";tick=false;});},{passive:true});}
+
+
+  // vídeos: tocam só quando aparecem na tela
+  var vids=document.querySelectorAll(".v video");
+  if("IntersectionObserver" in window && !reduce){
+    var vo=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){v.preload="auto";var p=v.play();if(p&&p.catch)p.catch(function(){});}else{v.pause();}});},{threshold:.35});
+    vids.forEach(function(v){vo.observe(v);});
+  } else { vids.forEach(function(v){v.controls=true;}); }
+
+  // formulário -> mensagem de WhatsApp
+  var f=document.getElementById("quote");
+  f.addEventListener("submit",function(e){
+    e.preventDefault();
+    var n=f.name.value.trim(), err=document.getElementById("quoteErr");
+    if(!n){err.hidden=false;f.name.focus();return;}
+    err.hidden=true;
+    var txt="Olá, JL! Meu nome é "+n+"."+(f.city.value.trim()?" Sou de "+f.city.value.trim()+".":"")+"\nPreciso de: "+f.type.value+"\nMomento da obra: "+f.stage.value+(f.msg.value.trim()?"\nDetalhes: "+f.msg.value.trim():"");
+    var a=document.getElementById("quoteLink");
+    a.href="https://wa.me/"+WHATS+"?text="+encodeURIComponent(txt);
+    document.getElementById("quoteOut").hidden=false;
+    a.focus();
+  });
+})();
+</script>
+</body>
+</html>
